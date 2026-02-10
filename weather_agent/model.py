@@ -1,5 +1,8 @@
 """Model and orchestration helpers for weather_agent.
 
+Author: Lakshitha Karunaratna
+Created: 2026-02-09
+
 This module contains functions to create the Chat model, bind tools, and run
 queries. The functions are intentionally small and documented for beginners.
 """

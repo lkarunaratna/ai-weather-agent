@@ -1,5 +1,8 @@
 """Tool implementations for the weather_agent package.
 
+Author: Lakshitha Karunaratna
+Created: 2026-02-09
+
 This module contains only pure-Python functions that fetch external data.
 They are written to be easy to test and re-use.
 """

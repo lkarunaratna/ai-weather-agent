@@ -1,5 +1,8 @@
 """Command-line runner for the weather_agent package.
 
+Author: Lakshitha Karunaratna
+Created: 2026-02-09
+
 This module shows how to wire the model and tools together. Keep it simple
 for learning: the logic is explicit and easy to follow.
 """
