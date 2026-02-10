@@ -1,0 +1,26 @@
+sequenceDiagram
+    participant User as User
+    participant Runner as run.py
+    participant CLI as weather_agent.cli
+    participant ModelHelper as model.create_model
+    participant Model as ChatOpenAI
+    participant Tools as weather_agent.tools
+    participant WTTR as wttr.in
+
+    User->>Runner: run.py (CLI entrypoint)
+    Runner->>CLI: main() -> run_query(user_prompt)
+    CLI->>ModelHelper: create_model(api_key, model_name)
+    ModelHelper-->>CLI: ChatOpenAI instance
+    CLI->>Model: bind_tools([get_weather])
+    CLI->>Model: invoke(messages)
+    Note right of Model: LLM processes prompt
+    Model-->>CLI: returns tool_call {name: get_weather, args: {city}}
+    CLI->>Tools: execute_tool(tool_call)
+    Tools->>WTTR: HTTP GET https://wttr.in/{city}?format=j1
+    WTTR-->>Tools: JSON weather data
+    Tools-->>CLI: tool_result (string)
+    CLI->>Model: invoke(messages + tool_result)
+    Model-->>CLI: final_response (natural language)
+    CLI->>User: print(final_response)
+
+    Note over CLI,Tools: CLI extracts tool_calls, runs tools locally\nfeeds results back to the model for a polished reply.

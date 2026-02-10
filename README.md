@@ -22,3 +22,7 @@ You can also call `run.py` without arguments; it defaults to `Denver`.
 
 - Lakshitha Karunaratna
 
+## Sequence Diagram
+
+![Sequence Diagram](docs/sequence_diagram.png)
+
