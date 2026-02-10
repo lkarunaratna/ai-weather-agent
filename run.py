@@ -1,4 +1,4 @@
-"""Simple entrypoint to run the weather agent from the project root.
+"""Entrypoint to run the weather agent from the project root.
 
 Author: Lakshitha Karunaratna
 Created: 2026-02-09

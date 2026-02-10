@@ -3,8 +3,7 @@
 Author: Lakshitha Karunaratna
 Created: 2026-02-09
 
-This module contains only pure-Python functions that fetch external data.
-They are written to be easy to test and re-use.
+This module contains Python functions that fetch external data.
 """
 from typing import Dict
 import requests
@@ -13,8 +12,8 @@ import requests
 def get_weather(city: str) -> str:
     """Fetch current weather for `city` using the free wttr.in API.
 
-    Returns a short human-readable string. This function catches errors and
-    returns an error message instead of raising so the caller (LLM driver)
+    Returns a short string. This function catches errors and
+    returns an error message instead of raising so the caller 
     can handle failures gracefully.
     """
     try:
@@ -31,8 +30,7 @@ def get_weather(city: str) -> str:
         return f"Error fetching weather: {e}"
 
 
-# Adapter for LangChain tools: a simple mapping to match what the LLM returns.
-# We keep the pure function separate so it can be unit-tested easily.
+# Adapter for LangChain tools: a mapping to match what the LLM returns.
 
 def execute_tool(call: Dict) -> str:
     """Execute a tool call dict and return the result string.
